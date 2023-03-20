@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from './components/Navbar';
+import HomePage from './pages/Home';
+import DummyPage from './pages/Dummy';
+import NotFoundPage from './pages/NotFound';
+
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar
+        title="Doodle"
+        isLoggedIn={isLoggedIn}
+        onLogin={handleLogin}
+        onLogout={handleLogout}
+      />
+      <BrowserRouter>
+        <Routes>
+        {['home', ''].map(path => <Route path={path} element={<HomePage />} />)}
+        {['random'].map(path => <Route path={path} element={<DummyPage />} />)}
+        {['404'].map(path => <Route path={path} element={<NotFoundPage />} />)}
+        {['*'].map(path => <Route path={path} element={<NotFoundPage />} />)}
+        </Routes>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;

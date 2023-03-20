@@ -1,0 +1,35 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    color: #fff;
+    height: 60px;
+    padding: 0 20px;
+    font-size: 1.2rem;
+  }
+  
+  .navbar-logo {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .navbar-links {
+    list-style: none; /* add this rule to remove list-style */
+    display: flex;
+    align-items: center;
+  }
+  .navbar-link {
+    margin-left: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .navbar-link:hover {
+    color: #e74c3c;
+  }
+  
