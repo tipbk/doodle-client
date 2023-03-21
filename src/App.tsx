@@ -9,9 +9,10 @@ import NotFoundPage from './pages/NotFoundPage';
 
 import './App.css';
 
+const serviceUrl = process.env.REACT_APP_SERVICE_URL;
 
 const client = new ApolloClient({
-  uri: 'http://localhost:8080/query',
+  uri: serviceUrl,
   cache: new InMemoryCache(),
 });
 
