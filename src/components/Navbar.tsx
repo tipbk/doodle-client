@@ -27,19 +27,19 @@ const Navbar: React.FC<NavbarProps> = ({ title, isLoggedIn, onLogin, onLogout })
           {isLoggedIn ? (
             <>
               <li>
-                <a href="#" className="navbar-link">
+                <a href="/" className="navbar-link">
                   Profile
                 </a>
               </li>
               <li>
-                <a href="#" className="navbar-link" onClick={onLogout}>
+                <a href="/" className="navbar-link" onClick={onLogout}>
                   Logout
                 </a>
               </li>
             </>
           ) : (
             <li>
-              <a href="#" className="navbar-link" onClick={onLogin}>
+              <a href="/" className="navbar-link" onClick={onLogin}>
                 Login
               </a>
             </li>
