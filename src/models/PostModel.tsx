@@ -4,6 +4,7 @@ export interface PostModel {
     id: string;
     title: string;
     description: string
+    hashtag: string;
     user: user
 }
 

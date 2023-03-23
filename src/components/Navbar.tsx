@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Navbar.css';
+import { useJwt } from 'react-jwt';
 
 interface NavbarProps {
   title: string;
-  isLoggedIn: boolean;
-  onLogin: () => void;
   onLogout: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ title, isLoggedIn, onLogin, onLogout }) => {
+interface DecodedToken {
+ username:string;
+}
+
+const getToken = (): string => {
+  return localStorage.getItem('token') ?? "";
+};
+
+const Navbar: React.FC<NavbarProps> = ({ title, onLogout }) => {
+
+  const [user, setUser] = useState<string | undefined>();
+
+  const { decodedToken, isExpired } = useJwt(getToken());
+  useEffect(() => {
+    if (decodedToken && !isExpired) {
+      const { username } = decodedToken as DecodedToken;
+      setUser(username);
+    }
+  }, [decodedToken, isExpired]);
+
   return (
     <nav>
       <div className="navbar">
@@ -24,22 +42,17 @@ const Navbar: React.FC<NavbarProps> = ({ title, isLoggedIn, onLogin, onLogout })
               Post
             </a>
           </li>
-          {isLoggedIn ? (
+          {user !== undefined ? (
             <>
               <li>
-                <a href="/" className="navbar-link">
-                  Profile
-                </a>
-              </li>
-              <li>
                 <a href="/" className="navbar-link" onClick={onLogout}>
-                  Logout
+                  {user}(logout)
                 </a>
               </li>
             </>
           ) : (
             <li>
-              <a href="/" className="navbar-link" onClick={onLogin}>
+              <a href="/login" className="navbar-link">
                 Login
               </a>
             </li>

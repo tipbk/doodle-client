@@ -10,6 +10,7 @@ const GET_POSTS = gql`
         id
         title
         description
+        hashtag
         user {
           username
         }
@@ -39,6 +40,7 @@ const PostPage = () => {
           key={post.id}
           title={post.title}
           description={post.description}
+          hashtag={post.hashtag}
           username={post.user.username}
         />
       ))}
