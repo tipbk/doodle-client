@@ -1,6 +1,6 @@
 import { PostResponse } from '../models/PostModel'
 import Post from '../components/Post'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { gql, useQuery } from '@apollo/client';
 
 const GET_POSTS = gql`
@@ -42,13 +42,14 @@ const PostPage = () => {
           <h2>Posts</h2>
           <button onClick={handleClickCreatePost}>Create Post</button>
           {data?.getAllPostsByFilter?.post.map((post) => (
+        <Link key={post.id} to={`/posts/${post.id}`} style={{ color: 'inherit', textDecoration: 'inherit'}}>
         <Post
-          key={post.id}
           title={post.title}
           description={post.description}
           hashtag={post.hashtag}
           username={post.user.username}
         />
+      </Link>
       ))}
         </div>
       );
