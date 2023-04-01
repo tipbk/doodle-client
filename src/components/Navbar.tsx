@@ -33,12 +33,12 @@ const Navbar: React.FC<NavbarProps> = ({ title, onLogout }) => {
         <div className="navbar-logo">{title}</div>
         <ul className="navbar-links">
           <li>
-            <a href="home" className="navbar-link">
+            <a href="/home" className="navbar-link">
               Home
             </a>
           </li>
           <li>
-            <a href="posts" className="navbar-link">
+            <a href="/posts" className="navbar-link">
               Post
             </a>
           </li>

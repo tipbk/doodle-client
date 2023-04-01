@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { gql, useMutation } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
 import { AuthResponse }from '../models/TokenModel'
+import { gql, useMutation } from '@apollo/client';
+
 
 const LOGIN_USER = gql`
   mutation LoginUser($input: LoginInput!) {
