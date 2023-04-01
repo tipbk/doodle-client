@@ -37,7 +37,7 @@ const PostDetailPage: React.FC = () => {
 
       return (
         <div>
-          <h2>Posts</h2>
+          <h2>Post</h2>
         <Post
           key={data?.getPost.id}
           title={data?.getPost.title ? data?.getPost.title : "N/A"}
@@ -45,6 +45,8 @@ const PostDetailPage: React.FC = () => {
           hashtag={data?.getPost.hashtag ? data?.getPost.hashtag : "N/A"}
           username={data?.getPost.user?.username ? data?.getPost.user?.username : "N/A"}
         />
+        <h3>Comments</h3>
+
         </div>
       );
   };

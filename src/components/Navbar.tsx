@@ -39,7 +39,7 @@ const Navbar: React.FC<NavbarProps> = ({ title, onLogout }) => {
           </li>
           <li>
             <a href="/posts" className="navbar-link">
-              Post
+              Posts
             </a>
           </li>
           {user !== undefined ? (
