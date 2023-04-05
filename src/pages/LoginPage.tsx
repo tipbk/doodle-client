@@ -43,7 +43,6 @@ const LoginPage: React.FC = () => {
             setTimeout(() => {
               navigate('/home');
             window.location.reload();
-
             }, 3000);
           },
         }

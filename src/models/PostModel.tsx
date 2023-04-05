@@ -1,4 +1,5 @@
 import { user } from './UserModel'
+import { CommentModel } from './CommentModel';
 
 export interface PostModel {
     id: string;
@@ -6,6 +7,7 @@ export interface PostModel {
     description: string
     hashtag: string;
     user: user
+    comment: CommentModel[];
 }
 
 export interface PostResponse {
